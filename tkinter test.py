@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 #I have messed with this - Jakob
 #So have I - Christian
-#same here -Tegan
+#I should have? Evan
 def calculate(*args):
     try:
         value = float(feet.get())
