@@ -1,1 +1,2 @@
 What are our goals
+-watch a tkinter basic tutorial
