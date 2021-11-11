@@ -3,3 +3,4 @@ What are our goals
 Make tkinter base
 learn basic tkinter
 get working window
+watch tkinter tutorial
