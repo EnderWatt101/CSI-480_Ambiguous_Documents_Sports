@@ -18,9 +18,11 @@ def button_click(number):
 ## Evan Add
 button_1 = Button(top, text="1", padx=40, pady=20, command=lambda: button_click(1))
 
-player_frame = Frame(top, borderwidth = 1)
+player_frame = Frame(top, borderwidth = 2, bg="Black")
 player_label = Label(player_frame, text="Player 1")
 player_label.pack()
+player_stat_button = Button(player_frame, text="Stats", command=lambda: button_click(1))
+player_stat_button.pack()
 player_frame.grid(row=1, column=1)
 
 button_1.grid(row=1, column=0)
