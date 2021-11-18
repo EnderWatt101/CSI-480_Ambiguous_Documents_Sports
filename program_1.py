@@ -18,18 +18,22 @@ def button_click(number):
     return
 
 def forgetWig(wig):
-    wig.forget() # removes from window
+    for widget in wig.winfo_children():
+        widget.destroy()
 
 def changeFrame(frame):
     forgetWig(currentFrame)
-    frameTemp = Frame(top)
     if frame == "button_1":
-        label_temp = Label(frameTemp, text="option 1")
+        label_temp = Label(currentFrame, text="option 1")
         label_temp.pack()
+        label_temp2 = Label(currentFrame, text="look antoer obj")
+        label_temp2.pack()
     if frame == "button_2":
-        label_temp = Label(frameTemp, text="option 2")
-        label_temp.pack()  
-    frameTemp.grid(row=1, column=1)
+        label_temp = Label(currentFrame, text="option 2")
+        label_temp.pack()
+        label_temp2 = Label(currentFrame, text="look antoer obj again")
+        label_temp2.pack()
+    currentFrame.grid(row=1, column=1)
 
 ## Evan Add
 button_1 = Button(top, text="1", padx=40, pady=20, command=lambda: changeFrame("button_1"))
