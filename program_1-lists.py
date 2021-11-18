@@ -8,24 +8,45 @@ from tkinter import ttk
 # ------------------------------
 
 
+<<<<<<< HEAD:program_1-lists.py
 #Functions-----------------
+=======
+currentFrame = Frame(top, borderwidth = 2)
+currentFrame.grid(row=1, column=1)
+>>>>>>> 8b38be9286f0e49a9dc553d67253c55d912c289d:program_1.py
 
 def button_click(number):
     return
 
 def forgetWig(wig):
-    wig.forget() # removes from window
+    for widget in wig.winfo_children():
+        widget.destroy()
 
 def changeFrame(frame, str):
     forgetWig(currentFrame)
-    frameTemp = Frame(top)
     if frame == "button_1":
         label_temp = Label(frameTemp, text=str)
+        label_temp = Label(currentFrame, text="Players:")
         label_temp.pack()
+        button_a1 = Button(currentFrame, text="Sam")
+        button_a1.pack()
+        button_a2 = Button(currentFrame, text="Jack")
+        button_a2.pack()
+        label_temp2 = Label(currentFrame, text="look antoer obj")
+        label_temp2.pack()
     if frame == "button_2":
         label_temp = Label(frameTemp, text=str)
         label_temp.pack()  
     frameTemp.grid(row=1, column=1)
+        label_temp = Label(currentFrame, text="Players:")
+        label_temp.pack()
+        button_a1 = Button(currentFrame, text="Megan")
+        button_a1.pack()
+        button_a2 = Button(currentFrame, text="Lobo")
+        button_a2.pack()
+        label_temp2 = Label(currentFrame, text="look antoer obj again!")
+        label_temp2.pack()
+    currentFrame.grid(row=1, column=1)
 
 
 top = Tk() #needs to be on top of other code, similar to main()
