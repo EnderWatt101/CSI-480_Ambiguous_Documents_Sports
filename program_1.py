@@ -30,7 +30,7 @@ def changeFrame(frame):
         button_a1.pack()
         button_a2 = Button(currentFrame, text="Jack")
         button_a2.pack()
-        label_temp2 = Label(currentFrame, text="look antoer obj")
+        label_temp2 = Label(currentFrame, text="^Look its player buttons")
         label_temp2.pack()
     if frame == "button_2":
         label_temp = Label(currentFrame, text="Players:")
@@ -39,13 +39,13 @@ def changeFrame(frame):
         button_a1.pack()
         button_a2 = Button(currentFrame, text="Lobo")
         button_a2.pack()
-        label_temp2 = Label(currentFrame, text="look antoer obj again!")
+        label_temp2 = Label(currentFrame, text="^Look its player buttons")
         label_temp2.pack()
     currentFrame.grid(row=1, column=1)
 
 ## Evan Add
-button_1 = Button(top, text="1", padx=40, pady=20, command=lambda: changeFrame("button_1"))
-button_2 = Button(top, text="2", padx=40, pady=20, command=lambda: changeFrame("button_2"))
+button_1 = Button(top, text="Team 1", padx=40, pady=20, command=lambda: changeFrame("button_1"))
+button_2 = Button(top, text="Team 2", padx=40, pady=20, command=lambda: changeFrame("button_2"))
 
 
 
