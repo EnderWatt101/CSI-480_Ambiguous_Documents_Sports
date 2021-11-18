@@ -11,7 +11,7 @@ top = Tk()
 top.title("Sports for the less sporty")
 #setup fancy windows
 
-currentFrame = Frame(top, borderwidth = 2, bg="Black")
+currentFrame = Frame(top, borderwidth = 2)
 currentFrame.grid(row=1, column=1)
 
 def button_click(number):
@@ -24,14 +24,22 @@ def forgetWig(wig):
 def changeFrame(frame):
     forgetWig(currentFrame)
     if frame == "button_1":
-        label_temp = Label(currentFrame, text="option 1")
+        label_temp = Label(currentFrame, text="Players:")
         label_temp.pack()
+        button_a1 = Button(currentFrame, text="Sam")
+        button_a1.pack()
+        button_a2 = Button(currentFrame, text="Jack")
+        button_a2.pack()
         label_temp2 = Label(currentFrame, text="look antoer obj")
         label_temp2.pack()
     if frame == "button_2":
-        label_temp = Label(currentFrame, text="option 2")
+        label_temp = Label(currentFrame, text="Players:")
         label_temp.pack()
-        label_temp2 = Label(currentFrame, text="look antoer obj again")
+        button_a1 = Button(currentFrame, text="Megan")
+        button_a1.pack()
+        button_a2 = Button(currentFrame, text="Lobo")
+        button_a2.pack()
+        label_temp2 = Label(currentFrame, text="look antoer obj again!")
         label_temp2.pack()
     currentFrame.grid(row=1, column=1)
 
