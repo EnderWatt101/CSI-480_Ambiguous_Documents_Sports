@@ -4,3 +4,4 @@ Make tkinter base
 learn basic tkinter
 get working window
 watch tkinter tutorial
+make player form a class
