@@ -36,10 +36,7 @@ button_1 = Button(top, text="1", padx=40, pady=20, command=lambda: changeFrame("
 button_2 = Button(top, text="2", padx=40, pady=20, command=lambda: changeFrame("button_2"))
 
 
-player_label = Label(currentFrame, text="Player 1")
-player_label.pack()
-player_stat_button = Button(currentFrame, text="Stats", command=lambda: button_click(1))
-player_stat_button.pack()
+
 currentFrame.grid(row=1, column=1)
 
 button_1.grid(row=1, column=0)
