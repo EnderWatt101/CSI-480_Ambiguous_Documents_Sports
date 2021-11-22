@@ -25,8 +25,9 @@ def changeFrame(frame):
     forgetWig(currentFrame)
     if frame == "button_1":
         label_temp = Label(currentFrame, text="Washing Machine Team")
-        label_temp = Label(currentFrame, text="Players:")
         label_temp.pack()
+        label_temp1 = Label(currentFrame, text="Players:")
+        label_temp1.pack()
         button_a1 = Button(currentFrame, text="Sam")
         button_a1.pack()
         button_a2 = Button(currentFrame, text="Jack")
@@ -35,8 +36,9 @@ def changeFrame(frame):
         label_temp2.pack()
     if frame == "button_2":
         label_temp = Label(currentFrame, text="Drying Machine Team")
-        label_temp = Label(currentFrame, text="Players:")
         label_temp.pack()
+        label_temp1 = Label(currentFrame, text="Players:")
+        label_temp1.pack()
         button_a1 = Button(currentFrame, text="Megan")
         button_a1.pack()
         button_a2 = Button(currentFrame, text="Lobo")
