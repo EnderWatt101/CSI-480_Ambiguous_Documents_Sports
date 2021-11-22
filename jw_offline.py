@@ -7,8 +7,6 @@ from tkinter import ttk
 # Evan McCarthy, Jakob Watt, Tegan McBride, Jack Maher, Christian Gruyon
 # ------------------------------
 
-def button_click(number):
-    return
 
 def forgetWig(wig):
     for widget in wig.winfo_children():
@@ -65,9 +63,7 @@ button_2.grid(row=2, column=0)
 button_3.grid(row=3, column=0)
 button_4.grid(row=4, column=0)
 
-welcome_label = Label(text="Washing Machine Team")
+welcome_label = Label(text="Teams") #"Changed Washing Machine Team" to "Teams"
 welcome_label.grid(row=0, column=0)
-
-## Evan Add End
 
 top.mainloop()
