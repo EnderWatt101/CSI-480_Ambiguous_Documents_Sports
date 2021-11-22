@@ -8,12 +8,8 @@ from tkinter import ttk
 # ------------------------------
 
 
-<<<<<<< HEAD:program_1-lists.py
-#Functions-----------------
-=======
 currentFrame = Frame(top, borderwidth = 2)
 currentFrame.grid(row=1, column=1)
->>>>>>> 8b38be9286f0e49a9dc553d67253c55d912c289d:program_1.py
 
 def button_click(number):
     return
@@ -25,11 +21,7 @@ def forgetWig(wig):
 def changeFrame(frame, str):
     forgetWig(currentFrame)
     if frame == "button_1":
-<<<<<<< HEAD:program_1.py
-        label_temp = Label(currentFrame, text="Washing Machine Team")
-=======
         label_temp = Label(frameTemp, text=str)
->>>>>>> bd2d8990ff875d77fb6aea1ee57c7d42aab958a5:program_1-lists.py
         label_temp = Label(currentFrame, text="Players:")
         label_temp.pack()
         button_a1 = Button(currentFrame, text="Sam")
@@ -39,13 +31,9 @@ def changeFrame(frame, str):
         label_temp2 = Label(currentFrame, text="^Look its player buttons")
         label_temp2.pack()
     if frame == "button_2":
-<<<<<<< HEAD:program_1.py
-        label_temp = Label(currentFrame, text="Drying Machine Team")
-=======
         label_temp = Label(frameTemp, text=str)
         label_temp.pack()  
     frameTemp.grid(row=1, column=1)
->>>>>>> bd2d8990ff875d77fb6aea1ee57c7d42aab958a5:program_1-lists.py
         label_temp = Label(currentFrame, text="Players:")
         label_temp.pack()
         button_a1 = Button(currentFrame, text="Megan")
