@@ -24,32 +24,32 @@ def forgetWig(wig):
 def changeFrame(frame):
     forgetWig(currentFrame)
     if frame == "button_1":
-        label_team = Label(currentFrame, text="Team 1")
-        label_team.pack()
-        label_temp = Label(currentFrame, text="Players:")
+        label_temp = Label(currentFrame, text="Washing Machine Team")
         label_temp.pack()
+        label_temp1 = Label(currentFrame, text="Players:")
+        label_temp1.pack()
         button_a1 = Button(currentFrame, text="Sam")
         button_a1.pack()
         button_a2 = Button(currentFrame, text="Jack")
         button_a2.pack()
-        label_temp2 = Label(currentFrame, text="^Look its player buttons")
+        label_temp2 = Label(currentFrame, text="look antoer obj")
         label_temp2.pack()
     if frame == "button_2":
-        label_team = Label(currentFrame, text="Team 2")
-        label_team.pack()
-        label_temp = Label(currentFrame, text="Players:")
+        label_temp = Label(currentFrame, text="Drying Machine Team")
         label_temp.pack()
+        label_temp1 = Label(currentFrame, text="Players:")
+        label_temp1.pack()
         button_a1 = Button(currentFrame, text="Megan")
         button_a1.pack()
         button_a2 = Button(currentFrame, text="Lobo")
         button_a2.pack()
-        label_temp2 = Label(currentFrame, text="^Look its player buttons")
+        label_temp2 = Label(currentFrame, text="look antoer obj again!")
         label_temp2.pack()
     currentFrame.grid(row=1, column=1)
 
 ## Evan Add
-button_1 = Button(top, text="Team 1", padx=40, pady=20, command=lambda: changeFrame("button_1"))
-button_2 = Button(top, text="Team 2", padx=40, pady=20, command=lambda: changeFrame("button_2"))
+button_1 = Button(top, text="1", padx=40, pady=20, command=lambda: changeFrame("button_1"))
+button_2 = Button(top, text="2", padx=40, pady=20, command=lambda: changeFrame("button_2"))
 
 
 
@@ -58,7 +58,7 @@ currentFrame.grid(row=1, column=1)
 button_1.grid(row=1, column=0)
 button_2.grid(row=2, column=0)
 
-welcome_label = Label(text="Washing Machine Team")
+welcome_label = Label(text="Lazie Sports")
 welcome_label.grid(row=0, column=0)
 
 ## Evan Add End
