@@ -39,15 +39,14 @@ def changeFrame(frame):
     frameTemp.grid(row=1, column=1)
     currentFrame.grid(row=1, column=1)
 
-top = Tk() #needs to be on top of other code, similar to main()
+top = Tk()
 top.title("Lazie Sports")
 
 
 currentFrame = Frame(top, borderwidth = 2, bg="Black")
 currentFrame.grid(row=1, column=1)
-#teamlist = []
-teamlist = ["WMT", "IML", "IMT", "Testing the length?"]
 
+teamlist = ["WMT", "IML", "IMT", "Testing the length?"]
 list_Team1 = ["Sam", "Jack", "John"]
 list_Team2 = ["Megan", "Austin", "Allie"]
 
@@ -63,7 +62,7 @@ button_2.grid(row=2, column=0)
 button_3.grid(row=3, column=0)
 button_4.grid(row=4, column=0)
 
-welcome_label = Label(text="Teams") #"Changed Washing Machine Team" to "Teams"
+welcome_label = Label(text="Teams")
 welcome_label.grid(row=0, column=0)
 
 top.mainloop()
