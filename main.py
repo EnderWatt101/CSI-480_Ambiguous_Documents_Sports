@@ -1,5 +1,8 @@
 from tkinter import *
 from tkinter import ttk
+
+from PIL import Image, ImageTk
+
 # ------------------------------
 # Ambiguous Documents
 # Software Engineering
@@ -28,6 +31,11 @@ def changeFrame(frame):
     elif frame == "button_4":
         button_a1 = Button(currentFrame, text="Aaron")
         button_a2 = Button(currentFrame, text="Jim")
+    elif frame == "button_lobo":
+        button_a1 = Button(currentFrame, text="Lobo")
+        button_a2 = Button(currentFrame, text="Lobo!")
+        image_label2 = Label(currentFrame, image=test2)
+        image_label2.pack()
     
     lbl_Players.pack() #Pack this first to be on top
     #-------Expand this list?
@@ -46,7 +54,7 @@ top.title("Lazie Sports")
 currentFrame = Frame(top, borderwidth = 2, bg="Black")
 currentFrame.grid(row=1, column=1)
 
-teamlist = ["WMT", "IML", "IMT", "Testing the length?"]
+teamlist = ["WMT", "IML", "IMT", "Geese"]
 list_Team1 = ["Sam", "Jack", "John"]
 list_Team2 = ["Megan", "Austin", "Allie"]
 
@@ -64,5 +72,23 @@ button_4.grid(row=4, column=0)
 
 welcome_label = Label(text="Teams")
 welcome_label.grid(row=0, column=0)
+
+name_label = Label(text="The Ambiguous Documents")
+name_label.grid(row=5, column=0)
+
+image1 = Image.open("jack.jpg")
+image1 = image1.resize((50, 25), Image.ANTIALIAS)
+image2 = Image.open("lobo.jpg")
+
+test = ImageTk.PhotoImage(image1)
+test2 = ImageTk.PhotoImage(image2)
+
+
+button_lobo = Button(top, image=test, padx=40, pady=20, command=lambda: changeFrame("button_lobo"))
+image_label = Label(image=test)
+
+
+image_label.image = test
+button_lobo.grid(row=6, column=0)
 
 top.mainloop()
