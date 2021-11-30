@@ -3,33 +3,10 @@ Working Window
 Create Teams
 Setup Players (Input name and team, display info)
 Setup test team and player and allow inputs to override the test data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--
-
-
-
-
-
-
 Setup “Login” Window that switches to that user/player
 
+Cosmetic for buttons
+-use images of teams and sports
+
+login window?
 
