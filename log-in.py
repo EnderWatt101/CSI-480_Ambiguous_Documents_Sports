@@ -35,13 +35,25 @@ def submit():
  
     name=name_var.get()
     password=passw_var.get()
-    Users.append((name, ",", password))
+    #Users.append((name, ",", password))
     #print("The name is : " + name)
     #print("The password is : " + password)
-    print(Users[0])
+    #print(Users[0])
     name_var.set("")
     passw_var.set("")
-     
+    for i in range(len(Users)):
+        if name and password in Users[i]:
+            print("True")
+        else:
+            print("False")
+
+def newuser():
+
+    name=name_var.get()
+    password=passw_var.get()
+    Users.append((name, password))
+    print(Users)
+    
 name_entry = Entry(currentFrame,textvariable = name_var, font=('calibre',10,'normal'))
 passw_entry=Entry(currentFrame, textvariable = passw_var, font = ('calibre',10,'normal'), show = '*')
 
@@ -51,7 +63,7 @@ passw_entry.grid(row=2, column=1)
 sub_btn=Button(currentFrame,text = 'Submit', command = submit)
 sub_btn.grid(row=3, column=0)
 
-new_user = Button(top, text="New User?", padx=40, pady=20)
+new_user = Button(top, text="New User?", padx=40, pady=20, command = newuser)
 new_user.grid(row=4, column=0)
 
 top.mainloop()
