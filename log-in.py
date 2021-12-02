@@ -30,22 +30,39 @@ password_label.grid(row=2, column=0, padx=10)
 name_var=StringVar()
 passw_var=StringVar()
 Users = []
+profile=["Tegan", "isCool"]
+Users.append(profile)
+user_not_found = Label(currentFrame, text='Incorrect password or username. Please try again.')
 
+#user_not_found.grid(row=4, column=1)
 def submit():
  
     name=name_var.get()
     password=passw_var.get()
+    profile=[name, password]
+    print(profile, "   ", Users[0])
     #Users.append((name, ",", password))
     #print("The name is : " + name)
     #print("The password is : " + password)
     #print(Users[0])
     name_var.set("")
     passw_var.set("")
-    for i in range(len(Users)):
-        if name and password in Users[i]:
-            print("True")
-        else:
-            print("False")
+    if(len(Users) >0):
+        for i in range(len(Users)):
+            print("HEREEE")
+            if profile == Users[i]:
+                print("True")
+                #go to new page @Jakob
+            else:
+                print("False")
+                user_not_found.grid(row=4, column=1)
+    else:
+        print("False")
+        print("HERE2")
+        user_not_found.grid(row=4, column=1)
+
+            
+
 
 def newuser():
 
@@ -64,6 +81,6 @@ sub_btn=Button(currentFrame,text = 'Submit', command = submit)
 sub_btn.grid(row=3, column=0)
 
 new_user = Button(top, text="New User?", padx=40, pady=20, command = newuser)
-new_user.grid(row=4, column=0)
+new_user.grid(row=5, column=0)
 
 top.mainloop()
