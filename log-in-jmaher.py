@@ -29,6 +29,10 @@ password_label.grid(row=2, column=0, padx=10)
 
 name_var=StringVar()
 passw_var=StringVar()
+
+name_var_new=StringVar()
+passw_var_new=StringVar()
+
 Users = []
 
 def submit():
@@ -47,19 +51,36 @@ def submit():
         else:
             print("False")
 
-def newuser():
+def create():
+    new_name=name_var_new.get()
+    new_password=passw_var_new.get()
+    Users.append((new_name, new_password))
+    print("The name is : " + new_name)
+    print("The password is : " + new_password)
+    #print(Users[0])
+    name_var_new.set("")
+    passw_var_new.set("")
     
+
+
+def newuser():
     newWindow = Toplevel (top)
     newWindow.title("New User")
-    newWindow.geometry("200x200")
+    newWindow.geometry("750x250")
+    label = Label(newWindow, text='Log in',  padx=20, pady=20)
+    label.config(width=50)
+    username_label = Label(newWindow, text='Username:')
+    password_label = Label(newWindow, text='Password:')
+    username_label.grid(row=1, column =0, padx=10)
+    password_label.grid(row=2, column=0, padx=10)
+    name_entry = Entry(newWindow,textvariable = name_var_new, font=('calibre',10,'normal'))
+    passw_entry=Entry(newWindow, textvariable = passw_var_new, font = ('calibre',10,'normal'), show = '*')
+    name_entry.grid(row=1, column =1)
+    passw_entry.grid(row=2, column=1)
+    label.grid(row=0, column=0)
+    sub_btn=Button(newWindow,text = 'Create New User', command = create)
+    sub_btn.grid(row=3, column=0)
 
-    Label(newWindow,
-        text = "This is the log-in").pack()
-        
-    #name=name_var.get()
-    #password=passw_var.get()
-    #Users.append((name, password))
-    #print(Users)
     
 name_entry = Entry(currentFrame,textvariable = name_var, font=('calibre',10,'normal'))
 passw_entry=Entry(currentFrame, textvariable = passw_var, font = ('calibre',10,'normal'), show = '*')
