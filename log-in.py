@@ -30,7 +30,7 @@ password_label.grid(row=2, column=0, padx=10)
 name_var=StringVar()
 passw_var=StringVar()
 Users = []
-profile=["Tegan", "McBride"]
+profile=["Tegan", "isCool"]
 Users.append(profile)
 user_not_found = Label(currentFrame, text='Incorrect password or username. Please try again.')
 
