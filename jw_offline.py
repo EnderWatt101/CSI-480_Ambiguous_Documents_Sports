@@ -9,30 +9,27 @@ def submit():
     name=name_var.get()
     password=passw_var.get()
     global bool_signedIn
-    #Users.append((name, ",", password))
-    #print("The name is : " + name)
-    #print("The password is : " + password)
-    #print(Users[0])
+    #-------------
     name_var.set("")
     passw_var.set("")
-    print(len(Users))
+    #print(len(Users))
     for i in range(len(Users)):
-        print("apple")
+        #print("apple")
         if name and password in Users[i]:
-            print("banana")
+            #print("banana")
             bool_signedIn = True
-            print(bool_signedIn)
+            #print(bool_signedIn)
         else:
-            print("orange")
+            #print("orange")
             bool_signedIn = False
-            print(bool_signedIn)
+            #print(bool_signedIn)
 
 def newuser():
 
     name=name_var.get()
     password=passw_var.get()
     Users.append((name, password))
-    print(Users)
+    #print(Users)
 
 def forgetWig(wig):
     for widget in wig.winfo_children():
@@ -111,7 +108,7 @@ new_user.grid(row=4, column=0)
 
 login.mainloop()
 
-print("HHH" + str(bool_signedIn))
+#print("HHH" + str(bool_signedIn))
 if(bool_signedIn == True):
 
     top = Tk()
