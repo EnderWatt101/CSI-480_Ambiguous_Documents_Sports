@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from PIL import Image, ImageTk
 # ------------------------------
 # Ambiguous Documents
 # Software Engineering
@@ -7,10 +8,11 @@ from tkinter import ttk
 # Evan McCarthy, Jakob Watt, Tegan McBride, Jack Maher, Christian Gruyon
 # ------------------------------
 
+
 class sport():
     def __init__(self, sportNameIn):
         self.sportName = sportNameIn
-        self.teamList = [team("Team 1"), team("Team 2")]
+        self.teamList = []
     def addTeam(self, team):
         self.teamList.append(team)
     def removeTeam(self, teamName):
@@ -27,7 +29,7 @@ class sport():
 class team():
     def __init__(self, teamNameIn):
         self.teamName = teamNameIn
-        self.playerList = [player("Player 1"), player("Player 2")]
+        self.playerList = []
     def addPlayer(self,player):
         self.playerList.append(player)
     def removePlayer(self, playerName):
@@ -48,12 +50,45 @@ class player():
         return self.playerName
 
 
+
 ##SPORTDATA
 
 tennis = sport("Tennis")
-basketball = sport("Basketball")
+tennis_t1 = team("Racket Masters")
+tennis_t1.addPlayer(player("Wilson"))
+tennis_t1.addPlayer(player("Megan"))
+tennis_t2 = team("Ping + Pong")
+tennis_t2.addPlayer(player("Teddy"))
+tennis_t2.addPlayer(player("Koby"))
+tennis.addTeam(tennis_t1)
+tennis.addTeam(tennis_t2)
 
-sportData = [tennis,basketball]
+basketball = sport("Basketball")
+basketball_t1 = team("Ballerz")
+basketball_t1.addPlayer(player("Charles"))
+basketball_t1.addPlayer(player("Joey"))
+basketball_t2 = team("Gus's Globetrotters")
+basketball_t2.addPlayer(player("Olivia"))
+basketball_t2.addPlayer(player("Allison"))
+basketball_t3 = team("Toon Squad")
+basketball_t3.addPlayer(player("Buggs Bunny"))
+basketball_t3.addPlayer(player("That one duck bastard"))
+basketball_t3.addPlayer(player("Literally an alien"))
+basketball.addTeam(basketball_t1)
+basketball.addTeam(basketball_t2)
+basketball.addTeam(basketball_t3)
+
+frisbee = sport("Frisbee")
+frisbee_t1 = team("Compact Disks")
+frisbee_t1.addPlayer(player("Wonderwall"))
+frisbee_t1.addPlayer(player("Shrek 2: The Musical"))
+frisbee_t2 = team("Digital Video Disks")
+frisbee_t2.addPlayer(player("Godzilla"))
+frisbee_t2.addPlayer(player("Monty Python and the Holy Grail"))
+frisbee.addTeam(frisbee_t1)
+frisbee.addTeam(frisbee_t2)
+
+sportData = [tennis,basketball, frisbee]
 
 def forgetWig(wig):
     for widget in wig.winfo_children():
@@ -62,10 +97,19 @@ def forgetWig(wig):
 def sportTabPress(sportNameIn): ###TODO: Need to add another change frame inside to show players when each team is selected
     thisSportName = str(sportNameIn)
     sportNotebook = ttk.Notebook(notebook)
+    for i in range(len(tabFrameList)):
+        print("WATCHEHEE")
+        print(tabFrameList[i][0])
+        if thisSportName == tabFrameList[i][0]:
+            notebook.select(tabFrameList[i][1])
+            print("areadyhere")
+            return
+    print("werwwww")
+    print(thisSportName)
     notebook.add(sportNotebook, text=thisSportName)
     notebook.select(sportNotebook)
-    tempFrame = Frame(sportNotebook)
-    title = Label(tempFrame, text="Teams:")
+    tempFrame = Frame(sportNotebook, width= 800, height=200)
+    title = Label(tempFrame, text="Teams:", font=("Arial",25))
     title.pack()
     for i in range(len(sportData)):#Each sport
         print(sportData[i].getSportName())
@@ -73,25 +117,18 @@ def sportTabPress(sportNameIn): ###TODO: Need to add another change frame inside
         if thisSportName == sportData[i].getSportName():
             print("gether")
             for j in range(len(sportData[i].getTeamList())): #Each Team
-                tempButton = Button(tempFrame, text=sportData[i].getTeamList()[j].getTeamName(), command=lambda i=i, j=j:teamButtonPress(sportData[i].getSportName(),sportData[i].getTeamList()[j].getTeamName())) #Add command
+                tempButton = Button(tempFrame, text=sportData[i].getTeamList()[j].getTeamName(), command=lambda i=i, j=j:teamButtonPress(sportData[i].getSportName(),sportData[i].getTeamList()[j].getTeamName()), font=("Arial",15)) #Add command
                 tempButton.pack()
             #this should only exit for loop and go through rest of func
-
+            print("Image " + str(i))
+            calendarLabel = Label(tempFrame, image=imageList[i])
+            calendarLabel.pack()
             print("You should see this then another")
-
     print("this is the other you should see")#see above
     print(thisSportName)
-    for i in range(len(tabFrameList)):
-        print(tabFrameList[i])
-        if thisSportName == tabFrameList[i][0]:
-            notebook.select(tabFrameList[i][1])
-            print("areadyhere")
-            return
-    print("werwwww")
-    print(thisSportName)
+    #HHH
     tabFrameList.append([thisSportName, sportNotebook])
     sportNotebook.add(tempFrame, text=thisSportName + " Home")
-    sportNotebook.select(sportNotebook)
 
 def teamButtonPress(sportNameIn, teamNameIn):#TODO FIX ALL THIS
     internalNotebook = None
@@ -99,9 +136,9 @@ def teamButtonPress(sportNameIn, teamNameIn):#TODO FIX ALL THIS
         if sportNameIn == tabFrameList[i][0]:
             internalNotebook = tabFrameList[i][1]
             break
-    tempFrame = Frame(internalNotebook)
+    tempFrame = Frame(internalNotebook, width= 800, height=400)
 
-    title = Label(tempFrame, text="Players:")
+    title = Label(tempFrame, text="Players:", font=("Arial",25))
     title.pack()
 
 
@@ -110,11 +147,12 @@ def teamButtonPress(sportNameIn, teamNameIn):#TODO FIX ALL THIS
             for j in range(len(sportData[i].getTeamList())):
                 if teamNameIn == sportData[i].getTeamList()[j].getTeamName():
                     for k in range(len(sportData[i].getTeamList()[j].getPlayerList())):
-                        tempButton = Button(tempFrame, text=sportData[i].getTeamList()[j].getPlayerList()[k].getPlayerName())
+                        tempButton = Button(tempFrame, text=sportData[i].getTeamList()[j].getPlayerList()[k].getPlayerName(), font=("Arial",15))
                         tempButton.pack()
 
 
     internalNotebook.add(tempFrame, text=sportNameIn + ": " + teamNameIn)
+    #sportNotebook.select(internalNotebook)
 
 
     #forgetWig(internamTempFrame)
@@ -125,10 +163,15 @@ top.title("Lazie Sports")
 
 notebook = ttk.Notebook(top)
 notebook.pack(pady=10, expand=True)
-topFrame = Frame(notebook)
+topFrame = Frame(notebook, width= 800, height=400)
+
+TennisCalendar = ImageTk.PhotoImage(Image.open("Tennis.png").resize((300,205), Image.ANTIALIAS))
+BasketballCalendar = ImageTk.PhotoImage(Image.open("Basketball.png").resize((300,205), Image.ANTIALIAS))
+FrisbeeCalendar = ImageTk.PhotoImage(Image.open("Frisbee.png").resize((300,205), Image.ANTIALIAS))
+imageList = [TennisCalendar, BasketballCalendar, FrisbeeCalendar]
 
 
-currentFrame = Frame(notebook, borderwidth = 2, bg="Black")
+currentFrame = Frame(notebook, borderwidth = 2, bg="Black", width= 800, height=400)
 #teamlist = []
 sportList = ["Tennis", "Kickball", "Basketball", "Soccer"]
 sportDict = {"Tennis": [{}, "ten2", "ten3"], "Kickball": ["kick1", "kick2", "kick3"], "Basketball": ["bask1", "bask2", "bask3"], "Soccer": ["socc1", "socc2", "socc3"]}
@@ -142,26 +185,14 @@ buttonList = []
 
 for i in range(len(sportData)):#Each sport
     print("each sport button: " + sportData[i].getSportName())
-    buttonList.append(Button(topFrame, text=sportData[i].getSportName(), command=lambda i=i: sportTabPress(sportData[i].getSportName())).grid(row=i+1, column=0))
+    buttonList.append(Button(topFrame, text=sportData[i].getSportName(), command=lambda i=i: sportTabPress(sportData[i].getSportName()), font=("Arial",15)).grid(row=i+1, column=0))
 
 
 
 
-#button_1 = Button(topFrame, text=sportList[0], padx=40, pady=20, command=lambda: changeFrame(sportList[0]))
-#button_2 = Button(topFrame, text=sportList[1], padx=40, pady=20, command=lambda: changeFrame(sportList[1]))
-#button_3 = Button(topFrame, text=sportList[2], padx=40, pady=20, command=lambda: changeFrame(sportList[2]))
-#button_4 = Button(topFrame, text=sportList[3], padx=40, pady=20, command=lambda: changeFrame(sportList[3]))
-
-
-#button_1.grid(row=1, column=0)
-#button_2.grid(row=2, column=0)
-#button_3.grid(row=3, column=0)
-#button_4.grid(row=4, column=0)
-
-welcome_label = Label(topFrame, text="Sports") #"Changed Washing Machine Team" to "Teams"
+welcome_label = Label(topFrame, text="Sports", font=("Arial",25)) #"Changed Washing Machine Team" to "Teams"
 welcome_label.grid(row=0, column=0)
 
 notebook.add(topFrame, text='Home')
-#notebook.add(frame2, text='Profile')
 
 top.mainloop()
