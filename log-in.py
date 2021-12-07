@@ -11,6 +11,7 @@ from typing import List
 
 top = Tk()
 top.title("Sports For The Less Sporty")
+top.configure(bg='maroon')
 #setup fancy windows
 
 currentFrame = Frame(top, borderwidth = 50, bg="maroon")
