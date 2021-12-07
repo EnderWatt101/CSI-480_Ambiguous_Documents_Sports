@@ -121,11 +121,9 @@ def submit():
             #print(bool_signedIn)
 
 def newuser():
-
     name=name_var.get()
     password=passw_var.get()
     Users.append((name, password))
-    #print(Users)
 
 def changeFrame(frame):
     forgetWig(mainFrame)
@@ -164,28 +162,17 @@ def changeFrame(frame):
 tennis = sport("Tennis")
 basketball = sport("Basketball")
 frisbee = sport("Frisbee")
-
 sportData = [tennis,basketball]
 
 # NEEDED!!!
 tabFrameList = []
 buttonList = []
 
-
-teamlist = ["WMT", "IML", "IMT", "Geese", "DMT"]
-list_Team1 = ["Sam", "Jack", "John"]
-list_Team2 = ["Megan", "Austin", "Allie"]
-
-
-#---------------------------------------------------------------------------
 bool_signedIn = False
-
-
-
 login_window = Tk()
 name_var=StringVar()
 passw_var=StringVar()
-Users = ["jakob, password"]
+Users = ["jakob, password", "evan, password", "christian, password", "tegan, password", "jack, password"]
 
 #Init Frames
 loginFrame = Frame(login_window, borderwidth = 2)
@@ -194,10 +181,10 @@ lbl_init= Label(loginFrame, text='Log in',  padx=20, pady=20)
 lbl_init.config(width=50)
 username_label = Label(loginFrame, text='Username:')
 password_label = Label(loginFrame, text='Password:')
-sub_btn=Button(loginFrame,text = 'Submit', command = lambda:submit())
-new_user = Button(loginFrame, text="New User?", padx=40, pady=20, command = newuser)
+sub_btn = Button(loginFrame,text = 'Submit', command = lambda:submit())
+new_user =Button(loginFrame, text="New User?", padx=40, pady=20, command = newuser)
 name_entry = Entry(loginFrame,textvariable = name_var, font=('calibre',10,'normal'))
-passw_entry=Entry(loginFrame, textvariable = passw_var, font = ('calibre',10,'normal'), show = '*')
+passw_entry= Entry(loginFrame, textvariable = passw_var, font = ('calibre',10,'normal'), show = '*')
 
 lbl_init.grid(row=0, column=0)
 loginFrame.grid(row=1, column=1)
