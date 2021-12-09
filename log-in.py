@@ -11,18 +11,20 @@ from typing import List
 
 top = Tk()
 top.title("Sports For The Less Sporty")
+top.configure(bg='maroon')
 #setup fancy windows
 
-currentFrame = Frame(top, borderwidth = 50)
+currentFrame = Frame(top, borderwidth = 50, bg="maroon")
 currentFrame.grid(row=0, column=0)
 
-label = Label(currentFrame, text='Log in',  padx=20, pady=20)
+
+label = Label(currentFrame, text='Log in',  padx=20, pady=20, bg="maroon", fg='white')
 label.config(width=50)
 
 label.grid(row=0, column=0)
 
-username_label = Label(currentFrame, text='Username:')
-password_label = Label(currentFrame, text='Password:')
+username_label = Label(currentFrame, text='Username:', bg="maroon", fg='white')
+password_label = Label(currentFrame, text='Password:', bg="maroon", fg='white')
 
 username_label.grid(row=1, column =0, padx=10)
 password_label.grid(row=2, column=0, padx=10)
@@ -32,7 +34,7 @@ passw_var=StringVar()
 Users = []
 profile=["Tegan", "isCool"]
 Users.append(profile)
-user_not_found = Label(currentFrame, text='Incorrect password or username. Please try again.')
+user_not_found = Label(currentFrame, text='Incorrect password or username. Please try again.', bg="maroon", fg='white')
 
 #user_not_found.grid(row=4, column=1)
 def submit():
@@ -77,10 +79,11 @@ passw_entry=Entry(currentFrame, textvariable = passw_var, font = ('calibre',10,'
 name_entry.grid(row=1, column =1)
 passw_entry.grid(row=2, column=1)
 
-sub_btn=Button(currentFrame,text = 'Submit', command = submit)
+sub_btn=Button(currentFrame,text = 'Submit',bg='maroon', fg='white', command = submit)
+#sub_btn.pack()
 sub_btn.grid(row=3, column=0)
 
-new_user = Button(top, text="New User?", padx=40, pady=20, command = newuser)
+new_user = Button(top, text="New User?", padx=40, pady=20, command = newuser, bg='maroon', fg='white')
 new_user.grid(row=5, column=0)
 
 top.mainloop()

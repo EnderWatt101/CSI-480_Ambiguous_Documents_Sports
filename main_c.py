@@ -1,66 +1,15 @@
-from tkinter import *
-from tkinter import ttk
+
 # ------------------------------
-# Ambiguous Documents
-# Software Engineering
-# Coding Project: Recreating IM Leagues
-# Evan McCarthy, Jakob Watt, Tegan McBride, Jack Maher, Christian Gruyon
+# Christian Trying Things
 # ------------------------------
 
-top = Tk()
-top.title("Sports for the less sporty")
-#setup fancy windows
+from tkinter import *   
 
-currentFrame = Frame(top, borderwidth = 2)
-currentFrame.grid(row=1, column=1)
-
-def button_click(number):
-    return
-
-def forgetWig(wig):
-    for widget in wig.winfo_children():
-        widget.destroy()
-
-def changeFrame(frame):
-    forgetWig(currentFrame)
-    if frame == "button_1":
-        label_temp = Label(currentFrame, text="Washing Machine Team")
-        label_temp.pack()
-        label_temp1 = Label(currentFrame, text="Players:")
-        label_temp1.pack()
-        button_a1 = Button(currentFrame, text="Sam")
-        button_a1.pack()
-        button_a2 = Button(currentFrame, text="Jack")
-        button_a2.pack()
-        label_temp2 = Label(currentFrame, text="look antoer obj")
-        label_temp2.pack()
-    if frame == "button_2":
-        label_temp = Label(currentFrame, text="Drying Machine Team")
-        label_temp.pack()
-        label_temp1 = Label(currentFrame, text="Players:")
-        label_temp1.pack()
-        button_a1 = Button(currentFrame, text="Megan")
-        button_a1.pack()
-        button_a2 = Button(currentFrame, text="Lobo")
-        button_a2.pack()
-        label_temp2 = Label(currentFrame, text="look antoer obj again!")
-        label_temp2.pack()
-    currentFrame.grid(row=1, column=1)
-
-## Evan Add
-button_1 = Button(top, text="1", padx=40, pady=20, command=lambda: changeFrame("button_1"))
-button_2 = Button(top, text="2", padx=40, pady=20, command=lambda: changeFrame("button_2"))
-
-
-
-currentFrame.grid(row=1, column=1)
-
-button_1.grid(row=1, column=0)
-button_2.grid(row=2, column=0)
-
-welcome_label = Label(text="Lazie Sports")
-welcome_label.grid(row=0, column=0)
-
-## Evan Add End
-
-top.mainloop()
+tkWindow = Tk()  
+tkWindow.geometry('400x150')  
+tkWindow.title('Button Background Example')
+  
+button = Button(tkWindow, text = 'Submit', bg='red', fg='white')  
+button.pack()  
+  
+tkWindow.mainloop()

@@ -1,6 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 from typing import List
+
+#from PIL.Image import new
+#from tkinter import tkfont
 # ------------------------------
 # Ambiguous Documents
 # Software Engineering
@@ -81,11 +84,8 @@ def teamButtonPress(sportNameIn, teamNameIn):#TODO FIX ALL THIS
             internalNotebook = tabFrameList[i][1]
             break
     tempFrame = Frame(internalNotebook, width= 800, height=400)
-
     title = Label(tempFrame, text="Players:", font=("Arial",25))
     title.pack()
-
-
     for i in range(len(sportData)):#Each sport
         if sportNameIn == sportData[i].getSportName():
             for j in range(len(sportData[i].getTeamList())):
@@ -104,59 +104,48 @@ def submit():
     name=name_var.get()
     password=passw_var.get()
     global bool_signedIn
-    #-------------
     name_var.set("")
     passw_var.set("")
-    #print(len(Users))
     for i in range(len(Users)):
-        #print("apple")
         if name and password in Users[i]:
-            #print("banana")
             bool_signedIn = True
             login_window.destroy()
-            #print(bool_signedIn)
         else:
-            #print("orange")
             bool_signedIn = False
-            #print(bool_signedIn)
 
-def newuser():
+def newuser1():
     name=name_var.get()
     password=passw_var.get()
     Users.append((name, password))
 
-def changeFrame(frame):
-    forgetWig(mainFrame)
-    frameTemp = Frame(top)
-    lbl_Players = Label(mainFrame, text="Players:")
-    if frame == "button_1":    
-        button_a1 = Button(mainFrame, text="Sam")
-        button_a2 = Button(mainFrame, text="Jack")
-    elif frame == "button_2":
-        button_a1 = Button(mainFrame, text="Megan")
-        button_a2 = Button(mainFrame, text="Lobo")
-    elif frame == "button_3":
-        button_a1 = Button(mainFrame, text="Jack")
-        button_a2 = Button(mainFrame, text="Jill")
-    elif frame == "button_4":
-        button_a1 = Button(mainFrame, text="Aaron")
-        button_a2 = Button(mainFrame, text="Jim")
-    elif frame == "button_lobo":
-        button_a1 = Button(mainFrame, text="Lobo")
-        button_a2 = Button(mainFrame, text="Lobo!")
-        #image_label2 = Label(mainFrame, image=test2)
-        #image_label2.pack()
-    lbl_Players.pack() #Pack this first to be on top
-    #-------Expand this list?
-    button_a1.pack()
-    button_a2.pack()
-    #--------Do these after
-    lbl_bottom = Label(mainFrame, text="^Look its player buttons")
-    lbl_bottom.pack()
-    frameTemp.grid(row=1, column=1)
-    mainFrame.grid(row=1, column=1)
-
-##GLOBALS:
+def create(w):
+    new_name=name_var_new.get()
+    new_password=passw_var_new.get()
+    Users.append((new_name, new_password))
+    print("The name is : " + new_name)
+    print("The password is : " + new_password)
+    name_var_new.set("")
+    w.withdraw()
+    passw_var_new.set("")
+    
+def newuser():
+    newWindow = Tk()
+    newWindow.title("New User")
+    newWindow.geometry("750x250")
+    sub_btn=Button(newWindow,text = 'Create New User', command = create())
+    label = Label(newWindow, text='Log in',  padx=20, pady=20)
+    label.config(width=50)
+    username_label = Label(newWindow, text='Username:')
+    password_label = Label(newWindow, text='Password:')
+    name_entry = Entry(newWindow,textvariable = name_var_new, font=('calibre',10,'normal'))
+    passw_entry=Entry(newWindow, textvariable = passw_var_new, font = ('calibre',10,'normal'), show = '*')
+    name_entry.grid(row=1, column =1)
+    passw_entry.grid(row=2, column=1)
+    label.grid(row=0, column=0)
+    username_label.grid(row=1, column=0, padx=10)
+    password_label.grid(row=2, column=0, padx=10)
+    sub_btn.grid(row=3, column=0)
+    newWindow.mainloop()
 
 #Sports
 tennis = sport("Tennis")
@@ -172,6 +161,9 @@ bool_signedIn = False
 login_window = Tk()
 name_var=StringVar()
 passw_var=StringVar()
+name_var_new=StringVar()
+passw_var_new=StringVar()
+
 Users = ["jakob, password", "evan, password", "christian, password", "tegan, password", "jack, password"]
 
 #Init Frames

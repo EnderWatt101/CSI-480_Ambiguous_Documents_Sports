@@ -78,7 +78,7 @@ def newuser():
     name_entry.grid(row=1, column =1)
     passw_entry.grid(row=2, column=1)
     label.grid(row=0, column=0)
-    sub_btn=Button(newWindow,text = 'Create New User', command = create)
+    sub_btn=Button(newWindow,text = 'Create New User', command = create, bg='red')
     sub_btn.grid(row=3, column=0)
 
     
