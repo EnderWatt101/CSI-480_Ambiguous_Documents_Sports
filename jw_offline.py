@@ -122,21 +122,15 @@ def newUser():
     new_name=name_var_new.get()
     new_password=passw_var_new.get()
     for i in range(len(Users)):
-        print(Users[i])
-        print(new_name+", "+new_password)
         if (new_name+", "+new_password) in Users[i]:
             bool_newuser = False
-            print("No")
         elif("" in Users[i]):
-            print("empty")
+            print("NULL")
         else:
             bool_newuser = True
-            print("YES")
-      
+            
     if(bool_newuser):
         Users.append((new_name, new_password))
-        print("The name is : " + new_name)
-        print("The password is : " + new_password)
         name_var_new.set("")
         passw_var_new.set("")
         newWindow.withdraw()
