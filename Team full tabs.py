@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
+from tkcalendar import Calendar
 # ------------------------------
 # Ambiguous Documents
 # Software Engineering
@@ -110,7 +111,7 @@ def sportTabPress(sportNameIn): ###TODO: Need to add another change frame inside
     notebook.select(sportNotebook)
     tempFrame = Frame(sportNotebook, width= 800, height=200)
     title = Label(tempFrame, text="Teams:", font=("Arial",25))
-    title.pack()
+    title.pack(padx=10, pady=10)
     for i in range(len(sportData)):#Each sport
         print(sportData[i].getSportName())
         print("1aswds" + thisSportName + sportNameIn)
@@ -118,11 +119,15 @@ def sportTabPress(sportNameIn): ###TODO: Need to add another change frame inside
             print("gether")
             for j in range(len(sportData[i].getTeamList())): #Each Team
                 tempButton = Button(tempFrame, text=sportData[i].getTeamList()[j].getTeamName(), command=lambda i=i, j=j:teamButtonPress(sportData[i].getSportName(),sportData[i].getTeamList()[j].getTeamName()), font=("Arial",15)) #Add command
-                tempButton.pack()
+                tempButton.pack(padx=10, pady=10)
             #this should only exit for loop and go through rest of func
             print("Image " + str(i))
             calendarLabel = Label(tempFrame, image=imageList[i])
-            calendarLabel.pack()
+            calendarLabel.pack(padx=10, pady=10)
+            calwidget = Calendar(tempFrame, selectmode = 'day',
+               year = 2021, month = 12,
+               day = 9, firstweekday = "sunday", showweeknumbers = False)
+            calwidget.pack(padx=10, pady=10)
             print("You should see this then another")
     print("this is the other you should see")#see above
     print(thisSportName)
@@ -139,7 +144,7 @@ def teamButtonPress(sportNameIn, teamNameIn):#TODO FIX ALL THIS
     tempFrame = Frame(internalNotebook, width= 800, height=400)
 
     title = Label(tempFrame, text="Players:", font=("Arial",25))
-    title.pack()
+    title.pack(padx=10, pady=10)
 
 
     for i in range(len(sportData)):#Each sport
@@ -148,7 +153,7 @@ def teamButtonPress(sportNameIn, teamNameIn):#TODO FIX ALL THIS
                 if teamNameIn == sportData[i].getTeamList()[j].getTeamName():
                     for k in range(len(sportData[i].getTeamList()[j].getPlayerList())):
                         tempButton = Button(tempFrame, text=sportData[i].getTeamList()[j].getPlayerList()[k].getPlayerName(), font=("Arial",15))
-                        tempButton.pack()
+                        tempButton.pack(padx=10, pady=10)
 
 
     internalNotebook.add(tempFrame, text=sportNameIn + ": " + teamNameIn)
@@ -185,7 +190,7 @@ buttonList = []
 
 for i in range(len(sportData)):#Each sport
     print("each sport button: " + sportData[i].getSportName())
-    buttonList.append(Button(topFrame, text=sportData[i].getSportName(), command=lambda i=i: sportTabPress(sportData[i].getSportName()), font=("Arial",15)).grid(row=i+1, column=0))
+    buttonList.append(Button(topFrame, text=sportData[i].getSportName(), command=lambda i=i: sportTabPress(sportData[i].getSportName()), font=("Arial",15)).grid(row=i+1, column=0, padx=10, pady=10))
 
 
 
