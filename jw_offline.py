@@ -239,14 +239,14 @@ name_var_new=StringVar()
 passw_var_new=StringVar()
 #------------------------
 #Init Frames
-loginFrame = Frame(login_window, borderwidth = 2)
+loginFrame = Frame(login_window, borderwidth = 50, bg='maroon')
 #-----------Sub Items
-lbl_init= Label(loginFrame, text='Log in',  padx=20, pady=20)
+lbl_init= Label(loginFrame, text='Log in',  padx=20, pady=20, bg='maroon')
 lbl_init.config(width=50)
-username_label = Label(loginFrame, text='Username:')
-password_label = Label(loginFrame, text='Password:')
+username_label = Label(loginFrame, text='Username:', bg="maroon", fg='white')
+password_label = Label(loginFrame, text='Password:', bg="maroon", fg='white')
 sub_btn = Button(loginFrame,text = 'Submit', command = lambda:submit())
-new_user =Button(loginFrame, text="New User?", padx=40, pady=20, command = lambda:create())
+new_user =Button(loginFrame, text="New User?", padx=30, pady=17, command = lambda:create(),)
 name_entry = Entry(loginFrame,textvariable = name_var, font=('calibre',10,'normal'))
 passw_entry= Entry(loginFrame, textvariable = passw_var, font = ('calibre',10,'normal'), show = '*')
 
